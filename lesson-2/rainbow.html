@@ -1,0 +1,63 @@
+<html>
+
+<head>
+        <meta charset="UTF-8">
+    <script>
+
+ 
+ 
+  //Initialise in one step
+  var rainbow = [
+        "Red", 
+        "Orange", 
+        "Yellow", 
+        "Green", 
+        "Blue", 
+        "Indigo", 
+        "Violet"
+        ];
+
+    rainbow.sort();
+var countRainbow = rainbow.length;
+
+var favouriteColour = "Orange";
+for ( i=0; i < countRainbow;  i++) { //start of statement block
+          console.log("Colour %d is called %s", i, rainbow[i]);
+
+          if (rainbow[i] == favouriteColour) {
+            console.log("-----Hey, that's your favourite colour!!!");
+          }
+
+      }//end of statement block
+ 
+      console.log("----------------------------------");
+      console.log("----------------------------------");
+
+
+
+
+
+
+
+var randomNumber = Math.floor((Math.random() * rainbow.length) + 1);
+var favouriteColour =rainbow[randomNumber];
+for ( i=0; i < countRainbow;  i++) { //start of statement block
+          console.log("Colour %d is called %s", i, rainbow[i]);
+
+          if (rainbow[i] == favouriteColour) {
+            console.log("-----Hey, %s that's your random favourite colour!!!",rainbow[i].toUpperCase() );
+          }
+
+      }//end of statement block
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

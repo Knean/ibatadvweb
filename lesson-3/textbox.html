@@ -1,0 +1,64 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<script>
+function getFullName() {
+
+
+    var fName = document.getElementById("tbFirstName").value;
+    var lName = document.getElementById("tbLastName").value;
+
+    var fullName = fName + " " + lName;
+
+    document.getElementById("messagePanel").innerHTML = fullName;
+
+    console.log("I am get full name")
+
+} // getFullName()
+
+
+function calculate() {
+    console.log("I am calculate()")
+    var firstNum = document.getElementById("tbFirstNum").value;
+    var secondNum = document.getElementById("tbSecondNum").value;
+    
+    //you need to convert text to a number (integer)
+    var total = parseInt(firstNum) + parseInt(secondNum);
+
+    document.getElementById("messagePanel").innerHTML = total;
+
+}
+</script>
+<style>
+
+    #messagePanel { height: 200; 
+        width: 200; padding: 15px;
+        border: solid 1px red}
+
+</style>
+</head>
+
+<body>
+<h1>Textbox Demo</h1>
+<input type="text" id="tbFirstName" placeholder="Fn" />
+<input type="text" id="tbLastName" placehold="Ln" />
+
+<button onclick="getFullName()">Get Full Name</button>
+<hr />
+
+<input type="text" id="tbFirstNum" placeholder="n1" />
+<input type="text" id="tbSecondNum" placeholder="n2" />
+
+<button onclick="calculate()">Add</button>
+<hr />
+
+
+
+<div id="messagePanel">
+</div>
+
+
+</body>
+
+</html>

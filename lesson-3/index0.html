@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<script>
+
+    console.log("Function Demo");
+
+function goToShops(shoppingItem) {
+    console.log("======================")
+    console.log("Go downstairs")
+    console.log("Go outside")
+    console.log("Turn Left")
+    console.log("Walk 100 yards")
+    console.log("Go into shop and purchase %s", shoppingItem)
+  
+    costOfItem = getCostOfItem(shoppingItem);
+    return costOfItem;
+}
+
+function goToShopsReturnObject(shoppingItem) {
+    console.log("======================")
+    console.log("Go downstairs")
+    console.log("Go outside")
+    console.log("Turn Left")
+    console.log("Walk 100 yards")
+    console.log("Go into shop and purchase %s", shoppingItem)
+  
+    costOfItem = getCostOfItem(shoppingItem);
+
+    var shopObject = {};
+    shopObject.cost = costOfItem;
+    shopObject.item=shoppingItem;
+    shopObject.change=5;
+
+
+    return shopObject;
+}
+
+
+
+function getCostOfItem(shoppingItem) {
+
+    costOfItem=100;
+    if (shoppingItem=="Cigar") costOfItem = 25;
+    if (shoppingItem=="Whiskey") costOfItem = 26;
+    if (shoppingItem=="Crisps") costOfItem = 27;
+    if (shoppingItem=="Gaviscon") costOfItem = 28;
+
+    return costOfItem
+
+}
+var objectReturned = goToShopsReturnObject("Whiskey");
+console.log("*****Object Item returned is %s, %d, %d",
+
+ objectReturned.item,
+ objectReturned.cost,
+ objectReturned.change);
+
+var costOfItem1 = goToShops("Whiskey");
+console.log("That cost %d", costOfItem1)
+
+var costOfItem2 = goToShops("Cigars");
+console.log("That cost %d", costOfItem2)
+
+var costOfItem3 = goToShops("Crisps");
+console.log("That cost %d", costOfItem3)
+
+var costOfItem4 = goToShops("Gaviscon");
+console.log("That cost %d", costOfItem4)
+
+
+
+
+
+
+
+
+
+</script>
+</head>
+
+<body>
+<h1>Function Demo</h1>
+</body>
+
+</html>

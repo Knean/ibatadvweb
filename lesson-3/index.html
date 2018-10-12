@@ -1,0 +1,35 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<script>
+
+function clickMe() {
+    var x =100
+    console.log("I am a button click %d", x);
+}
+
+function listDwarves() {
+ //Initialise in one step
+ var dwarves = ["Sleepy","Bashful","Happy","Doc"];
+
+var countDwarves = dwarves.length;
+for ( i=0; i < countDwarves;  i++) { //start of statement block
+          console.log("Dwarf %d is called %s", i, dwarves[i]);
+          //shorthand for currentStep = currentStep =1
+      }//end of s
+
+}
+
+</script>
+</head>
+
+<body>
+<h1>Button Demo</h1>
+
+<button onclick="clickMe()"> Click Me </button>
+<button onclick="listDwarves()"> Click Me </button>
+
+</body>
+
+</html>

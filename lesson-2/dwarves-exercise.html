@@ -1,0 +1,56 @@
+<html>
+
+<head>
+        <meta charset="UTF-8">
+    <script>
+        //Simple console message, to reassure all is working
+        console.log("Hello World");
+
+       //Declare the array that will hold values
+       //var dwarves = []; // var fruit = new array();
+
+       //Assign values to the array - starting at position 0 
+      // dwarves[0] = "Sleepy";
+      // dwarves[1] = "Happy";
+       //dwarves[2] = "Bashful";
+
+        //Initialise in one step
+        var dwarves = ["Sleepy","Bashful","Happy","Doc"];
+
+        //add extra by pushing
+        dwarves.push("Sneezy");
+        dwarves.push("Dopey");
+        dwarves.push("Grumpy");
+
+
+      //Simple output messages and one final consolidated message
+       console.log("%s", dwarves[0]);
+       console.log("%s", dwarves[1]);
+       console.log("%s", dwarves[2]);
+       console.log("%s %s %s", dwarves[0], dwarves[1],dwarves[2]);
+        
+
+       //Dump the array to the console - note how it appears 
+       //in the inspect window - like a 'javascript object' 
+       console.log(dwarves);
+
+       //Sort the array
+       dwarves.sort(); 
+       console.log(dwarves);
+
+       //Reverse the array (if after sort, alpha descending)
+       dwarves.reverse(); 
+       console.log(dwarves);
+
+      var songs = ["Song 0","Song 1","Song 2","Song 3", "Song 4","Song 5", "Song 6"];
+
+      console.log("Dwarf %s sings %s", dwarves[3], songs[3]);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

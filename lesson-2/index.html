@@ -1,0 +1,65 @@
+<html>
+
+<head>
+        <meta charset="UTF-8">
+    <script>
+        //Simple console message, to reassure all is working
+        console.log("Hello World");
+
+       //Declare the array that will hold values
+       var fruit = []; // var fruit = new array();
+
+       //Assign values to the array - starting at position 0 
+       fruit[0] = "Banana";
+       fruit[1] = "Apple";
+       fruit[2] = "Grape";
+
+      //Simple output messages and one final consolidated message
+       console.log("%s", fruit[0]);
+       console.log("%s", fruit[1]);
+       console.log("%s", fruit[2]);
+       console.log("%s %s %s", fruit[0], fruit[1],fruit[2]);
+        
+
+
+
+
+
+       //Dump the array to the console - note how it appears 
+       //in the inspect window - like a 'javascript object' 
+       console.log(fruit);
+
+       //Sort the array
+       fruit.sort(); 
+       console.log(fruit);
+
+       //Reverse the array (if after sort, alpha descending)
+       fruit.reverse(); 
+       console.log(fruit);
+
+       //Add an element to the array
+       fruit[3]="Strawberry" //Hardwiring to a known position
+      
+       //Interrogate the array dynamically using code
+       var len = fruit.length; // Get the length
+       fruit[len]="Raspberry"; // then use the value to get known position
+     
+       // Or simply let array take care of positioning
+       fruit.push("Pineapple"); // preferred method
+
+       fruit.sort(); 
+       console.log(fruit);
+
+       //Remove and capture the last element in the array (pop)
+       var lastFruit = fruit.pop();
+       console.log(lastFruit);
+       console.log(fruit);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
