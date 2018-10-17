@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+     var colours = ["Red", "Yellow", "Orange", "Green"];
+
+var newColours = [];
+     for(i = 0; i < colours.length; i++) {
+
+        console.log( c(colours[i]) );
+
+        newColours.push(c(colours[i]))
+
+     }
+
+     console.log(newColours)
+
+     function c(x) {
+
+        return x.toUpperCase()
+
+     }
+
+    var uppers = colours.map(function(x) { return x.toUpperCase(); });
+    var findPosition = uppers.indexOf(favouriteColour);
+    
+
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

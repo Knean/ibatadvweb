@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/listing.js"></script>
+    <style>
+        /* Target by Class */
+
+        .messagePanel {
+
+            border: solid 1px red;
+            margin: 50px;
+        }
+
+        /* Target by Id using */
+        #messagePanel {
+
+            width: 200px;
+            height: 200px;
+
+        }
+
+        #listOfRainbowColours {
+
+
+            width: 400px;
+            height: 300px;
+
+        }
+
+        .favouriteItem {
+
+            color: green;
+        }
+    </style>
+
+    <title>List Dwarves</title>
+
+
+
+</head>
+
+<body onload="renderPage()">
+
+    <div id="messagePanel" class="messagePanel">
+
+    </div>
+
+    <div id="listOfRainbowColours" class="messagePanel">
+
+    </div>
+
+    <p class="favouriteItem">Hello world</p>
+    <p>Hello <span class="favouriteItem">world</span></p>
+
+</body>
+
+</html>
