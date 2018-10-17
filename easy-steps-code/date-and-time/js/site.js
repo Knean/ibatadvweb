@@ -12,3 +12,12 @@ console.log("Month is %d [%s]", mt, months[mt])
 var days = ["Sun", "Mon","Tue","Wed","Wed","Thu","Fri","Sat"]
 var dy = now.getDay();
 console.log("Day is %d [%s]", dy , days[dy])
+
+//display the extracted day and date information
+console.log("Today is: %s %s %s %d", days[dy], months[mt], dy, yy)
+
+//Get a current time stamp
+console.log(Date.now());
+
+//Slightly different method
+console.log(+new Date);
