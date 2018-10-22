@@ -18,7 +18,7 @@ function listRainbowColours() {
         htmlString.push("</li>");
         console.log(htmlString)
     }
-    htmlString.push("</ol>");
+    htmlString.push("</ul>");
     console.log(htmlString)
     e.innerHTML = htmlString.join(" ");
 
