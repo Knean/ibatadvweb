@@ -44,6 +44,3 @@ $(function () {
 
 
 })
-
-//https://api.jcdecaux.com/vls/v1/stations?contract=dublin&apiKey=013c96fda1ac6937698c8402e42b0c31f2-
-
