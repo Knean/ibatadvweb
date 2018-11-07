@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+
+https://pastebin.com/TmR36CvL (stations)
+
+https://pastebin.com/Eg8vZJMq  (weather)
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 6 Json Data</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function () {
+
+            $.getJSON('./jsondata/stationslist.json', function (jsonItems) {
+                console.log(jsonItems)
+                var htmlData = []
+                for (var i = 0; i < jsonItems.length; i++) {
+                    var currentItem = jsonItems[i];
+                    htmlData.push("<tr>");
+
+                    htmlData.push("<td>");
+                    htmlData.push(currentItem.number);
+                    htmlData.push("</td>");
+
+                    htmlData.push("<td>");
+                    htmlData.push(currentItem.name);
+                    htmlData.push("</td>");
+
+                    htmlData.push("<td>");
+                    htmlData.push(currentItem.address);
+                    htmlData.push("</td>");
+                    htmlData.push("</tr>");
+
+                }
+                /*
+console.log(htmlData.join())
+console.log(htmlData.join(' '))
+console.log(htmlData.join('+'))
+console.log(htmlData.join('?'))
+*/
+//We use a space in the join(' ' ) so it does not default to comma separated values
+                $('#dataTable tbody').append(htmlData.join(' '))
+            })
+
+        }); // end loading jquery
+    </script>
+    <link rel="stylesheet" type="text/css" href="./css/site.css">
+</head>
+
+<body>
+    <h1 id="mainHeading"></h1>
+
+    <table id="dataTable" class="blueTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+
+</body>
+
+</html>
