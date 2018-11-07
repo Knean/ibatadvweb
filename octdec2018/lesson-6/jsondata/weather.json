@@ -1,0 +1,165 @@
+{
+    "cnt": 4,
+    "list": [
+        {
+            "coord": {
+                "lon": -6.25,
+                "lat": 53.36
+            },
+            "sys": {
+                "type": 1,
+                "id": 5237,
+                "message": 0.0315,
+                "country": "IE",
+                "sunrise": 1541576178,
+                "sunset": 1541608822
+            },
+            "weather": [
+                {
+                    "id": 803,
+                    "main": "Clouds",
+                    "description": "broken clouds",
+                    "icon": "04n"
+                }
+            ],
+            "main": {
+                "temp": 6.49,
+                "pressure": 997,
+                "humidity": 81,
+                "temp_min": 6,
+                "temp_max": 7
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 3.1,
+                "deg": 240
+            },
+            "clouds": {
+                "all": 75
+            },
+            "dt": 1541615056,
+            "id": 7778677,
+            "name": "Dublin City"
+        },
+        {
+            "coord": {
+                "lon": -8.47,
+                "lat": 51.9
+            },
+            "sys": {
+                "type": 1,
+                "id": 5236,
+                "message": 0.0187,
+                "country": "IE",
+                "sunrise": 1541576421,
+                "sunset": 1541609646
+            },
+            "weather": [
+                {
+                    "id": 801,
+                    "main": "Clouds",
+                    "description": "few clouds",
+                    "icon": "02n"
+                }
+            ],
+            "main": {
+                "temp": 4,
+                "pressure": 999,
+                "humidity": 80,
+                "temp_min": 4,
+                "temp_max": 4
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 2.6,
+                "deg": 190
+            },
+            "clouds": {
+                "all": 20
+            },
+            "dt": 1541615056,
+            "id": 2965140,
+            "name": "Cork"
+        },
+        {
+            "coord": {
+                "lon": -8.75,
+                "lat": 52.5
+            },
+            "sys": {
+                "type": 1,
+                "id": 5240,
+                "message": 0.0022,
+                "country": "IE",
+                "sunrise": 1541576605,
+                "sunset": 1541609596
+            },
+            "weather": [
+                {
+                    "id": 801,
+                    "main": "Clouds",
+                    "description": "few clouds",
+                    "icon": "02n"
+                }
+            ],
+            "main": {
+                "temp": 6,
+                "pressure": 997,
+                "humidity": 81,
+                "temp_min": 6,
+                "temp_max": 6
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 3.1,
+                "deg": 160
+            },
+            "clouds": {
+                "all": 20
+            },
+            "dt": 1541615056,
+            "id": 2962941,
+            "name": "County Limerick"
+        },
+        {
+            "coord": {
+                "lon": -9,
+                "lat": 53.33
+            },
+            "sys": {
+                "type": 1,
+                "id": 5238,
+                "message": 0.0137,
+                "country": "IE",
+                "sunrise": 1541576833,
+                "sunset": 1541609487
+            },
+            "weather": [
+                {
+                    "id": 801,
+                    "main": "Clouds",
+                    "description": "few clouds",
+                    "icon": "02n"
+                }
+            ],
+            "main": {
+                "temp": 4,
+                "pressure": 995,
+                "humidity": 86,
+                "temp_min": 4,
+                "temp_max": 4
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 3.6,
+                "deg": 210
+            },
+            "clouds": {
+                "all": 20
+            },
+            "dt": 1541615056,
+            "id": 2964179,
+            "name": "County Galway"
+        }
+    ]
+}

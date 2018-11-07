@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lesson 6 Jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function () {
+            console.log("Jquery goodness has loaded");
+
+            $('#mainHeading').html("Jquery Tutorial is here");
+            
+            //Attach 
+            $('#firstButton').on('click', function () {
+
+                $('#mainHeading').html("");
+
+            
+
+            })//end #firstButton
+            
+            $('.btn').on('click', function () {
+
+                    var id = $(this).prop("id");
+                    var fruit = $(this).data("fruit");
+
+                    console.log("Message from button %s for %s", id, fruit);
+            })
+
+
+        }); // end loading jquery
+    </script>
 </head>
+
 <body>
-    <h1> Jquery Tutorial</h1>
+    <h1 id="mainHeading"></h1>
+    <button id="firstButton">Clear Heading</button>
+
+    <div id="buttons">
+            <button id="btnApples" data-fruit="apples" class="btn">Apples</button> <br />
+            <button id="btnOranges"  data-fruit="oranges" class="btn">Oranges</button> <br />
+            <button id="btnPears"  data-fruit="pears" class="btn">Pears</button> <br />
+
+    </div>
 </body>
+
 </html>

@@ -1,0 +1,20 @@
+[
+    {
+        "number": 42,
+        "name": "SMITHFIELD NORTH",
+        "address": "Smithfield North"
+       
+    },
+    {
+        "number": 30,
+        "name": "PARNELL SQUARE NORTH",
+        "address": "Parnell Square North"
+      
+    },
+    {
+        "number": 54,
+        "name": "CLONMEL STREET",
+        "address": "Clonmel Street"
+       
+    }
+]

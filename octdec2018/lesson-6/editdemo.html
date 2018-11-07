@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 6 Jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function () {
+         
+            $('#mainHeading').html("Jquery Tutorial - Edit Demo");
+            
+            $('#firstNumber').on('focus', function () {
+                $(this).val('');
+            }) //#firstNumber.focus
+
+            $('#firstNumber').on('blur', function () {
+                $currentValue = $(this).val();
+
+                if (isNaN($currentValue)) {
+                    $(this).val(0)
+                };
+
+            });//#firstNumber.blur
+
+            $('.seat').on("click", function () {
+
+                    if ($(this).hasClass("available")) {
+                            $(this).addClass("reserved");
+                    }
+
+                    console.log("Seats ", $('.reserved').length);
+
+                    $('#countReservations').html($('.reserved').length)
+
+            })
+
+        }); // end loading jquery
+    </script>
+    <style>
+        .seat { width: 20px; height:20px; border: solid 1px red; margin: 5px; float: left;}
+        .available { background-color: green}
+        .reserved { background-color: gray;}
+
+    </style>
+</head>
+
+<body>
+    <h1 id="mainHeading"></h1>
+    <input type="text" value="0" id="firstNumber" />
+<div>
+    <div class="seat"></div>
+    <div class="seat reserved"></div>
+    <div class="seat available"></div>
+    <div class="seat available"></div>
+    <div class="seat available"></div>
+    <div class="seat available"></div>
+    <div class="seat available"></div>
+    <div class="seat available"></div>
+</div>
+<p>Seat Reservations <span id="countReservations"></span></p>
+</body>
+
+</html>
