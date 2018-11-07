@@ -1,3 +1,15 @@
+/* Version 1 of fleet object */
+/*
+var fleet = [
+
+    { "mf": "Ford", "models": []},
+    { "mf": "Fiat", "models": []},
+    { "mf": "Nissan", "models": []}
+
+]
+*/
+
+
 var fleet = [
 
     { "mf": "Ford", "models": [
@@ -89,8 +101,6 @@ function handleCarChoice() {
     console.log("I am changing selected car with id %d", carId)
 
     renderModel(carId);
-
-
 
     var currentCar = fleet[carId].models[0];
 
