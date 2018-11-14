@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+
+https://pastebin.com/TmR36CvL (stations)
+
+https://pastebin.com/Eg8vZJMq  (weather)
+
+-->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson 7 Movie Data</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(function () {
+
+
+            var url = 'http://www.omdbapi.com/?t=jaws&apikey=9a854c88';
+
+            $.getJSON(url, function (movieData) {
+                console.log(movieData)
+              
+                $('#movieHeading').html(movieData.Title)
+                $('#movieTitle').html(movieData.Title)
+                $('#movieRating').html('Rating: ' + movieData.Rated)
+                $('#movieRuntime').html('Runtime: ' + movieData.Runtime)
+                $('#moviePlot').html(movieData.Plot)
+
+                $('#movieImage').prop('src',movieData.Poster );
+
+
+
+                $('#_movieHeading').html(movieData.Title)
+                $('#_movieTitle').html(movieData.Title)
+                $('#_movieRating').html('Rating: ' + movieData.Rated)
+                $('#_movieRuntime').html('Runtime: ' + movieData.Runtime)
+                $('#_moviePlot').html(movieData.Plot)
+
+
+
+
+            })
+
+        }); // end loading jquery
+    </script>
+
+
+
+</head>
+
+<body>
+
+<div class="container">
+    <img src="https://via.placeholder.com/728x90" />
+<h4 id="_movieHeading"></h4>
+<h4 id="_movieTitle"></h4>
+<h5 id="_movieRating"></h5>
+<h5 id="_movieRunTime"></h5>
+<p id="_moviePlot"></p>
+
+</div>
+
+
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="movieHeading"></div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-md-2">
+
+                            <img id="movieImage" width="52" height="81">
+
+                        </div>
+                        <div class="col-md-10">
+                            <h4 id="movieTitle"></h4>
+                            <h5 id="movieRating"></h5>
+                            <h5 id="movieRunTime"></h5>
+                            <p id="moviePlot"></p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

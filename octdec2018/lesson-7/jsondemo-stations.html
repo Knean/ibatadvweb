@@ -21,8 +21,9 @@ https://pastebin.com/Eg8vZJMq  (weather)
    <script>
         $(function () {
                 
-                var url ='./jsondata/stationslist.json';
-          
+                var _url ='./jsondata/stationslist.json';
+            var url = 'https://api.jcdecaux.com/vls/v1/stations?contract=dublin&apiKey=013c96fda1ac6937698c8402e42b0c31f2cc081e';
+
             $.getJSON(url, function (jsonItems) {
                 console.log(jsonItems)
 
@@ -66,12 +67,7 @@ https://pastebin.com/Eg8vZJMq  (weather)
 
 
                 }
-                /*
-console.log(htmlData.join())
-console.log(htmlData.join(' '))
-console.log(htmlData.join('+'))
-console.log(htmlData.join('?'))
-*/
+             
 //We use a space in the join(' ' ) so it does not default to comma separated values
                 $('#dataTable tbody').append(htmlData.join(' '))
 
@@ -80,7 +76,7 @@ console.log(htmlData.join('?'))
 
         }); // end loading jquery
     </script>
-    <link rel="stylesheet" type="text/css" href="./css/site.css">
+   
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
     
