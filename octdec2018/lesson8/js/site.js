@@ -40,6 +40,10 @@ function saveFlavour() {
     localStorage.setItem('favFlavour', $('#favFlavour').val());
 }
 
+/*
+This function shows how to save and retrive (unwrap) an object so you can store 
+composite values 
+*/
 
 function saveCar() {
     var car = {};
@@ -48,7 +52,10 @@ function saveCar() {
     car.sound = 'vroom';
     car.name = 'Lightning McQueen';
     console.log( car );
+    //Pay attention to JSON.stringify() - this converts object into a string which can be saved as value
     localStorage.setItem( 'car', JSON.stringify(car) );
+
+    //Note the JSON.parse() - this is how you 'unwrap' the object
     console.log( JSON.parse( localStorage.getItem( 'car' ) ) );
 
 }
