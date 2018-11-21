@@ -9,6 +9,10 @@ $(function () {
     */
     loadFlavour(); // Load the flavour saved in previous session
 
+    readCarDetails();
+
+    readCarDetailsFromListing(0);
+
     //Set up listener to save to local storage on button click 
 
     $('#btnSave').on('click', function () {
@@ -16,10 +20,27 @@ $(function () {
     })
 
     $('#btnSaveCar').on('click', function () {
-        saveCar(); // This function is defined outside the jquery ready function
+        //saveCar(); // This function is defined outside the jquery ready function
+        saveCarDetails()
     })
 
+    $('#btnSaveCarListing').on('click', function () {
+        //saveCar(); // This function is defined outside the jquery ready function
 
+       
+       saveCarDetailsToList()
+    })
+
+    var counter = 1;
+    $('#btnNextCarListing').on('click', function () {
+        //saveCar(); // This function is defined outside the jquery ready function
+
+       
+        counter = readCarDetailsFromListing(counter);
+    })
+
+    
+    
 })
 
 /*
@@ -60,31 +81,85 @@ function saveCar() {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function _saveCar() {
-    var car = {};
-    car.wheels = 4;
-    car.doors = 2;
-    car.sound = 'vroom';
-    car.name = 'Lightning McQueen';
-    console.log( car );
-    localStorage.setItem( 'car', JSON.stringify(car) );
-    console.log( JSON.parse( localStorage.getItem( 'car' ) ) );
+function saveCarDetails() {
+    console.log("Saving car details")
+    var carModel = {};
+    carModel.mf = $('#tbMf').val();
+    carModel.model = $('#tbModel').val();
+    carModel.colour = $('#tbColour').val();
+  
+    console.log( carModel );
+    localStorage.setItem( 'carModel', JSON.stringify(carModel) );
+    console.log( JSON.parse( localStorage.getItem( 'carModel' ) ) );
 
 }
+
+
+function readCarDetails() {
+    console.log("reading car details")
+    var carModel = JSON.parse( localStorage.getItem( 'carModel' ) );
+
+    if(carModel === null) return;
+    $('#tbMfRead').val(carModel.mf);
+    $('#tbModelRead').val(carModel.model);
+    $('#tbColourRead').val(carModel.colour);
+  
+    console.log(carModel)
+
+}
+
+
+function saveCarDetailsToList() {
+    console.log("Saving car details to List")
+    
+
+    var carModel = {};
+    carModel.mf = $('#tbMfListing').val();
+    carModel.model = $('#tbModelListing').val();
+    carModel.colour = $('#tbColourListing').val();
+
+    var listOfCars = JSON.parse(localStorage.getItem('listOfCars'))
+
+    if (listOfCars === null) {
+
+        listOfCars=[];
+    }
+
+    listOfCars.push(carModel);
+
+    localStorage.setItem( 'listOfCars', JSON.stringify(listOfCars) );
+
+}
+
+function readCarDetailsFromListing(indexPosition) {
+    console.log("READ car details FROM List")
+
+
+    var listOfCars = JSON.parse(localStorage.getItem('listOfCars'))
+
+    if (listOfCars === null) {
+
+       return;
+    }
+
+    if (indexPosition > listOfCars.length) {
+
+        indexPosition = listOfCars.length-1
+    }
+    $('#tbMfReadListing').val(listOfCars[indexPosition].mf)
+    $('#tbModelReadListing').val(listOfCars[indexPosition].model)
+    $('#tbColourReadListing').val(listOfCars[indexPosition].colour)
+
+    return indexPosition;
+
+}
+
+
+
+
+
+
+
+
+
+

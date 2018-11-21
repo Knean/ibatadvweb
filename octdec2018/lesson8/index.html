@@ -29,6 +29,7 @@
     </head>
     <body>
        <div class="container">
+          <h2>Saving Favourite Flavour to local storage</h2>
         <div class="row">
                 <div class="col-md-6">
 
@@ -50,7 +51,8 @@
 
           </div><!-- /.row -->
 
-
+<hr />
+<h2>Saving a single car to local storage</h2>
 <div class="row">
 <div class="col-md-6">
         <form>
@@ -76,14 +78,85 @@
 
 </div><!-- ./col-md-6 form-->
 
+<div class="col-md-6">
+  <form>
+            <div class="form-group">
+              <label for="tbMfRead">Manufacturer</label>
+              <input type="text" readonly class="form-control form-control-plaintext" id="tbMfRead" placeholder="Mf">
+            </div>
+            <div class="form-group">
+              <label for="tbModelRead">Model</label>
+              <input type="text" readonly class="form-control form-control-plaintext" id="tbModelRead" placeholder="Model">
+            </div>
+            <div class="form-group">
+                    <label for="tbColourRead">Colour</label>
+                    <input type="text" readonly class="form-control form-control-plaintext" id="tbColourRead" placeholder="Colour">
+                  </div>
+              
+                </form>
+           
+       
 
-<div class="col-md-6"></div>
 
-
+</div><!-- ./col-md-6 form-->
 
 
 </div>
 
+<hr />
+<h2>Saving a List of Cars to local storage</h2>
+<div class="row">
+<div class="col-md-6">
+      
+                <div class="form-group">
+                  <label for="tbMfListing">Manufacturer</label>
+                  <input type="text" class="form-control" id="tbMfListing" placeholder="Mf">
+                </div>
+                <div class="form-group">
+                  <label for="tbModelListing">Model</label>
+                  <input type="text" class="form-control" id="tbModelListing" placeholder="Model">
+                </div>
+                <div class="form-group">
+                        <label for="tbColourListing">Colour</label>
+                        <input type="text" class="form-control" id="tbColourListing" placeholder="Colour">
+                      </div>
+                  
+            
+               
+                <button id="btnSaveCarListing" class="btn btn-default">Save to Listing</button>
+            
+
+
+
+</div><!-- ./col-md-6 form-->
+
+<div class="col-md-6">
+  <form>
+            <div class="form-group">
+              <label for="tbMfReadListing">Manufacturer</label>
+              <input type="text" readonly class="form-control form-control-plaintext" id="tbMfReadListing" placeholder="Mf">
+            </div>
+            <div class="form-group">
+              <label for="tbModelReadListing">Model</label>
+              <input type="text" readonly class="form-control form-control-plaintext" id="tbModelReadListing" placeholder="Model">
+            </div>
+            <div class="form-group">
+                    <label for="tbColourReadListing">Colour</label>
+                    <input type="text" readonly class="form-control form-control-plaintext" id="tbColourReadListing" placeholder="Colour">
+                  </div>
+                
+                
+
+                </form>
+           
+                <button id="btnNextCarListing" class="btn btn-default">Next Car</button>
+            
+
+
+</div><!-- ./col-md-6 form-->
+
+
+</div>
 
 
 
