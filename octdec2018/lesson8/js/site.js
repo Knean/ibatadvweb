@@ -39,6 +39,7 @@ $(function () {
         counter = readCarDetailsFromListing(counter);
     })
 
+ 
     
     
 })
@@ -141,16 +142,17 @@ function readCarDetailsFromListing(indexPosition) {
 
        return;
     }
-
-    if (indexPosition > listOfCars.length) {
+    console.log("index pos is %d", indexPosition)
+    if (indexPosition > listOfCars.length-1) {
 
         indexPosition = listOfCars.length-1
     }
+    console.log("index pos is %d", indexPosition)
     $('#tbMfReadListing').val(listOfCars[indexPosition].mf)
     $('#tbModelReadListing').val(listOfCars[indexPosition].model)
     $('#tbColourReadListing').val(listOfCars[indexPosition].colour)
 
-    return indexPosition;
+    return indexPosition+1;
 
 }
 
