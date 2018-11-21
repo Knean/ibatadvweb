@@ -52,28 +52,6 @@
         }); // end loading jquery
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         function loadMovies(searchString) {
 
             var url = 'http://www.omdbapi.com/?apikey=9a854c88&s=' + searchString;
@@ -100,26 +78,16 @@
                 // var urlMovie = 'http://www.omdbapi.com/?apikey=9a854c88&i=' + firstMovie.imdbID;
                 loadMovie(firstMovie.imdbID)
 
-
-
-
-
-
             })
 
             $('#movieSelection').on("change", function () {
 
                 var selectedMovieId = $(this).val();
                 loadMovie(selectedMovieId)
-
-
-
-
             })
 
 
         } // function loadMovies()
-
 
 
         function loadMovie(selectedMovieId) {
