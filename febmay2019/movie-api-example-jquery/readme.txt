@@ -1,0 +1,1 @@
+Click https://college-movies.herokuapp.com/ link to open resource.
