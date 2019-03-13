@@ -1,22 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JQ Demo</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script>
+    <script>
 
-$(function () {
+        $(function () {
 
-    console.log("Jquery goodness is loaded");
+            console.log("Jquery goodness is loaded");
 
-})
-</script>
+            $('#btnDemo').on("click", function () {
+
+                console.log("Button is clicked");
+
+                var d = new Date();
+                time = d.getTime()
+                // var tag = 
+                //Backtick operator for string interpolation (`${}`)
+                $('#messagePanel').html(`Hello World: time is ${time}`);
+
+            }); // #btnDemo - click
+
+            $('#btnGetName').on("click", function () {
+
+                var firstName = $('#tbFirstName').val();
+                $('#messagePanel').html(firstName);
+
+            }) //#btnGetName
+
+            $('#btnGetAge').on("click", function () {
+
+                var age = parseInt( $('#tbAge').val() ) * 7;
+
+                $('#messagePanel').html(`Your age in dog years is ${age}`);
+
+            }) //#btnGetAge
+
+        })// $();
+    </script>
+    <style>
+        #messagePanel {
+            height: 200px;
+            width: 200px;
+            border: solid 1px red
+        }
+    </style>
 
 </head>
+
 <body>
     <h1>Jquery Demo</h1>
+    <input type="text" id="tbFirstName" placeholder="First Name" />
+
+    <input type="text" id="tbAge" placeholder="Age" />
+
+    <button id="btnGetName">Get Name</button>
+
+    <button id="btnGetAge">Get AGe</button>
+
+    <button id="btnDemo">Demo Button</button>
+
+    <div id="messagePanel"></div>
 </body>
+
 </html>
