@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <script>
+        /*
+                          Note: Typically, functions would be declared in one or more separate files
+                          Saved locally in this file for convenience
+                */
+
+
+        //Declare the function : function keyword, function name, function parameters
+        function goToShops(item, price) {
+            // using string formatting for console.log
+            // %s means interpret as a string
+            // %d means interpret as an integer
+            console.log("I am going to the shops to fetch %s and it will cost %d", item, price)
+        }
+
+        //After declaring a function, invoke or call or run the function 
+        //Invoke, call, run mean the same thing
+
+        goToShops("chocolate", 5)
+        goToShops("cigars", 6)
+        goToShops("whiskey", 7)
+        goToShops("antacid", 8)
+        goToShops("crisps", 9)
+
+        //Another function
+        function displayMessage(targetYear, myage) {
+
+            var difference = targetYear - myAge
+
+            var message = "You will be " + targetYear + " in " + difference + " years time"
+
+            console.log(message)
+
+        }
+
+        displayMessage(100, 45);
+        displayMessage(1000, 450);
+        displayMessage(90, 30);
+
+
+
+        function showAge(message, age) {
+
+
+
+            console.log(message, age)
+
+
+        }
+        var message1 = "I am %d years old"
+        showAge(message1, 55)
+
+        var message2 = "Tá mé %d bhliain d'aois"
+        showAge(message2, 55)
+    </script>
+</head>
+
+<body>
+
+
+
+</body>
+
+</html>

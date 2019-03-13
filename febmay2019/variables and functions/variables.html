@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // Notice we embed all our code with <script> tags
+        //This is a single line comment
+
+        /*
+        this is a multiline
+        comment
+        */
+
+        //Remove '//' in line below to trigger a javascript alert
+        //alert('Hello World')
+
+        //The following line outputs to console - inspect element in Firefox / Chrome
+        //console.log("Hello World", "Dublin Calling", 2017)
+
+        //Declare a variable (greeting) to contain a value
+        var greeting = "Hello World from a variable"
+
+        //Then output it to the console - notice it does not have quotes
+        console.log(greeting)
+
+        //You can overwrite the previous value
+        greeting = "This is another message";
+
+        //And then output the new value
+        console.log(greeting)
+
+        // += means to join together / concatentation when working with text (strings)
+        greeting = "Hello " + " World"
+        console.log(greeting)
+
+        //You can concatenate onto previous value "Hello World"" += "new text""
+        greeting += " and now I have been added to the message"
+        console.log(greeting)
+
+
+        //Use meaningful names for your variables so code is easy to read
+        //You cannot start variables with numbers or symbols (*& etc)
+        //You can use an underscore (e..g _firstName)
+        //You can use numbers within or at end of variable: num1, num2, num3
+
+        var firstName = "John" //Variables within quotes are strings (text)
+        var lastName = "Rowley"
+
+        console.log(firstName + " " + lastName);
+
+        var age = 55; //Variables with no quotes usually mean numbers
+
+        console.log("John's age is " + age) // Notice how age is converted into a text for display
+
+        var firstNum = "20" //declared as text - not a number
+        var secondNum = "20" //declared as text - not a number
+
+        //Notice they are joined together, not added
+        console.log(firstNum + secondNum + " vision")
+            //Formatted print string for output
+        console.log("My age is %d", age)
+
+
+        //Exercise: Some simple programming
+        var targetYear = 100
+        var myAge = 55
+        var difference = targetYear - myAge
+        var message = "You will be " + targetYear + " in " + difference + " years time"
+        console.log(message)
+
+        //Formattted print string
+        console.log("You will be %d in %d years time", targetYear, difference)
+    </script>
+
+</head>
+
+<body>
+    <h1>Introduction Variables</h1>
+
+
+</body>
+
+</html>
