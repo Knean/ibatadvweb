@@ -13,10 +13,59 @@
 
 <body>
     
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+                <table class="table">
+                <thead>
+                    <tr>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Colour</th>
+                        <th>Engine</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="fleet">
+                </tbody>
+                </table></div><!-- col /1-->
+        <div class="col-md-6">
+                <div class="form-group">
+                        <label for="tbMake">Make</label>
+                        <input type="text" class="form-control" id="tbMake" placeholder="Make">
+                    </div>
+                    <div class="form-group">
+                            <label for="tbModel">Model</label>
+                            <input type="text" class="form-control" id="tbModel" placeholder="Model">
+                        </div>
+                        <div class="form-group">
+                                <label for="tbColour">Colour</label>
+                                <input type="text" class="form-control" id="tbColour" placeholder="Colour">
+                            </div>
+                            <div class="form-group">
+                                    <label for="tbEngine">Engine</label>
+                                    <input type="text" class="form-control" id="tbEngine" placeholder="Engine">
+                                </div>
+        
+                    <button id="btnSaveCar" class="btn btn-primary">Save Car</button>
+                    <button id="btnClearScreen" class="btn btn-primary">Clear</button>
+                    <button id="btnRetrieveFleet" class="btn btn-primary">Retrieve</button>
+        
+        
+
+
+
+        </div><!-- form-->
+    </div>
+</div>
+
+
+
+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="js/flavour.js"></script>
+    <script src="js/cars.js"></script>
 </body>
 
 </html>
