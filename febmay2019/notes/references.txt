@@ -1,2 +1,4 @@
 Map, Filter, Reduce
 https://medium.com/jsguru/javascript-functional-programming-map-filter-and-reduce-846ff9ba492d
+
+Local Storage to save programminghttps://stackoverflow.com/questions/19017401/how-to-store-and-retrieve-image-to-localstorage
