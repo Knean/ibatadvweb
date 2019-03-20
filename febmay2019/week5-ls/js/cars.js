@@ -16,6 +16,16 @@ function initButtons() {
        $('#fleet').empty();
     })
 
+    $('#fleet').on("click", '.btnDelete', function () {
+        var carId = $(this).data("id");
+        console.log(`Deleting car: ${carId}`);
+
+        
+
+        renderFleet(deleteFromFleet(carId));
+     })
+ 
+
 
     $('#btnRetrieveFleet').on("click", function () {
        
@@ -32,6 +42,8 @@ function saveCar() {
     carObject.model = $('#tbModel').val();
     carObject.colour = $('#tbColour').val();
     carObject.engine = $('#tbEngine').val();
+    var d = new Date();
+    carObject.id = d.getTime();
 
     localStorage.setItem('make', carObject.make);
     localStorage.setItem('model', carObject.model);
@@ -40,6 +52,8 @@ function saveCar() {
 
     var fleet = retrieveFleet();
     fleet.push(carObject);
+
+    fleet.sort(compare);
     localStorage.setItem('fleet', JSON.stringify(fleet));
 
    return fleet;
@@ -71,7 +85,7 @@ function renderFleet(fleet) {
     htmlString.push("</td>");
 
     htmlString.push("<td>");
-    htmlString.push("<button>Delete</button>");
+    htmlString.push(`<button class='btnDelete' data-id='${carObject.id}'>Delete </button>`);
     htmlString.push("</td>");
 
     htmlString.push("</tr>");
@@ -96,7 +110,35 @@ if ( fleetData === null) {
 
     fleet = JSON.parse(fleetData);
 }
+fleet.sort(compare);
 
 return fleet;
 
+}
+
+
+
+function compare(carA,carB) {
+
+    let comparison = 0;
+    if (carA.engine > carB.engine) {
+      comparison = 1;
+    } else if (carA.engine < carB.engine) {
+      comparison = -1;
+    }
+    return comparison;
+
+
+}
+
+function deleteFromFleet(carID) {
+    fleet = retrieveFleet();
+//delete
+
+
+    fleet = fleet.filter(car => car.id != carID)
+
+    localStorage.setItem("fleet", JSON.stringify(fleet));
+
+    return fleet;
 }
