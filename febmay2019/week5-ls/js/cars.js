@@ -18,10 +18,7 @@ function initButtons() {
 
     $('#fleet').on("click", '.btnDelete', function () {
         var carId = $(this).data("id");
-        console.log(`Deleting car: ${carId}`);
-
-        
-
+        console.log(`Deleting car: ${carId}`);  
         renderFleet(deleteFromFleet(carId));
      })
  
