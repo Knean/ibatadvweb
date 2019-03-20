@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+#getFlavour {display: none;}
+
+    </style>
+</head>
+
+<body>
+    <div class="container" id="setFlavour">
+
+      
+            <div class="form-group">
+                <label for="tbFlavour">Flavour</label>
+                <input type="text" class="form-control" id="tbFlavour" placeholder="Your Flavour">
+            </div>
+
+            <button id="btnFlavour" class="btn btn-primary">Save Flavour</button>
+      
+
+
+
+    </div>
+
+    <div class="container" id="getFlavour">
+            <button id="btnRetrieveFlavour" class="btn btn-primary">Retrieve Flavour</button>
+      
+
+        <div class="alert alert-success" role="alert" id="showFlavour">
+                retrieve flavour
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/flavour.js"></script>
+</body>
+
+</html>

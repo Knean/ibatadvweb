@@ -1,0 +1,2 @@
+Map, Filter, Reduce
+https://medium.com/jsguru/javascript-functional-programming-map-filter-and-reduce-846ff9ba492d
