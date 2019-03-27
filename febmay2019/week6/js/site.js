@@ -94,7 +94,7 @@ function getMovieTemplate(id, movieItem) {
     return `<div class="card" style="width: 18rem;">
                
     <div class="card-body">
-      <h5 class="card-title">${movieItem.title}</h5>
+      <h5 class="card-title">${movieItem.title} <span class="badge badge-secondary">${movieItem.genre}</span></h5>
       ${getCastTemplate(movieItem.cast.split(","))}
       <p class="card-text"></p>
       <button class="btn btn-primary viewMovie" data-id="${id}">View Movie</button> 
