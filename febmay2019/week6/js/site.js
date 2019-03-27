@@ -94,6 +94,13 @@ function getMovieTemplate(id, movieItem) {
     return `<div class="card" style="width: 18rem;">
                
     <div class="card-body">
+    
+    <img src="https://via.placeholder.com/250x120" class="img-fluid"/>
+
+   
+
+
+    
       <h5 class="card-title">${movieItem.title} <span class="badge badge-secondary">${movieItem.genre}</span></h5>
       ${getCastTemplate(movieItem.cast.split(","))}
       <p class="card-text"></p>
