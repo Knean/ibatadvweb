@@ -35,7 +35,15 @@ function loadGenresCheckbox() {
     $('#selectMovies').append(templateData.join(" "));
 }
 
+function updatePrice() {
+    console.log($('#chooseticket').data())
+    var movieId = $('#chooseticket').data("movieid")
+    var ticket = $('#chooseticket').data("ticket")
+    var numberOfTickets = $("#tickets").data('total')
+    var price = globalMovieData[movieId].tickets[ticket]
 
+    $('#totalPrice').text(price * numberOfTickets + ".00€")
+}
 
 
 function startUp() {
@@ -59,30 +67,38 @@ function startUp() {
         }
         $('#movieListing').empty().append(templateData.join(" "));
     })
- 
+
     // View Movie button
     $(".container").on('click', ".viewMovie", function () {
         var movieId = $(this).data("id");
         bookMovie(movieId)
-        
+
         // ticket plus and minus buttons have a math class
         $('.math').on('click', function (event) {
-            
-            
-            if(event.currentTarget.id=="plus"){
-                var num = parseInt($('#tickets').text()) + 1
-                
-                $('#tickets').text(num)
+            var num = parseInt($('#tickets').data('total'))
+
+            if (event.currentTarget.id == "plus") {
+                num++
             }
-            else if(event.currentTarget.id=="minus"){
-                var num = parseInt($('#tickets').text()) - 1
-                num >= 0? $('#tickets').text(num): $('#tickets').text(0)
-                
+            else if (event.currentTarget.id == "minus") {
+
+                num - 1 >= 0 ? num-- : num = 0
+
             }
             $('.math').blur()
 
-            console.log(event.currentTarget.id)
+            $('#tickets').text(num)
+            $('#tickets').data('total', num)
+            updatePrice()
         })
+
+        $('#chooseticket').on('change', function (event) {
+
+            $('#chooseticket').data('ticket', $(this).context.value)
+            updatePrice()
+
+        })
+
 
     })
 
@@ -129,6 +145,21 @@ function startUp() {
 
 
 }
+function createCinema() {
+    var cinema = []
+    //index is row, value is number of seats
+    for (i = 0; i < parseInt(5 + 5 * Math.random()); ++i) {
+        cinema.push(parseInt(4 + 4 * Math.random()))
+    }
+    return cinema
+}
+
+function ticketPrices() {
+    return {
+        "Basic": parseInt(5 + 15 * Math.random()),
+        "Premium": parseInt(20 + 500 * Math.random()), "Vip": 100 * parseInt(1 + 9 * Math.random())
+    }
+}
 
 function loadMovies() {
 
@@ -137,6 +168,12 @@ function loadMovies() {
 
     $.getJSON(url, function (jsonData) {
         globalMovieData = jsonData;
+        $.each(globalMovieData, function (index, value) {
+            console.log(value)
+            value["cinema"] = createCinema()
+            value["tickets"] = ticketPrices()
+        })
+        console.log(globalMovieData, 'edited json')
         console.log(globalMovieData, 'jsonobject')
         var templateData = []
         loadGenresCheckbox()
@@ -221,7 +258,7 @@ function getMovieBookingTemplate(id, movieItem) {
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button id="minus" type="button" class="btn btn-primary btn-sm math"><i
                             class="fas fa-minus"></i></button>
-                    <h1><span id="tickets" class="badge badge-light">1</span></h1>
+                    <h1><span data-total="1" id="tickets" class="badge badge-light">1</span></h1>
                     <button id="plus" type="button" class="btn btn-primary btn-sm math"><span><i
                                 class="fas fa-plus"></span></i></button>
 
@@ -238,7 +275,7 @@ function getMovieBookingTemplate(id, movieItem) {
                     <option value="">Select a ticket type</option>
                     <option value="Basic">Basic</option>
                     <option value="Premium">Premium</option>
-                    <option value="VIP">VIP</option>
+                    <option value="Vip">VIP</option>
 
                 </select>
 
@@ -246,7 +283,7 @@ function getMovieBookingTemplate(id, movieItem) {
             
             <div class="col-md">
                 <p  > Price: </p>
-                <div id = "totalPrice" style = " border-style:solid; border-color: green"> 9.99 € </div>
+                <div id = "totalPrice" style = " border-style:solid; border-color: green"> 0 € </div>
             </div>
         </div>
 
