@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
 
-.seat{ border: solid 1px red; width: 30px; height: 30px; float: left; margin: 5px;}
-  .clear {clear: both;}
-    </style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <style>
+    .seat {
+      border: solid 1px red;
+      width: 30px;
+      height: 30px;
+      float: left;
+      margin: 5px;
+    }
+
+    .clear {
+      clear: both;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-  <label class="form-check-label" for="defaultCheck1">
-    Default checkbox
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-  <label class="form-check-label" for="defaultCheck2">
-    Disabled checkbox
-  </label>
-</div>
-<div class="container">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+      Default checkbox
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+    <label class="form-check-label" for="defaultCheck2">
+      Disabled checkbox
+    </label>
+  </div>
+  <div class="container">
     <div class="row">
-        <div class="col-sm" id="selectMovies"></div>
-        <div class="col-sm" id="movieListing"></div>
-        <div class="col-sm" id="movieDetail"></div>
-        <div class="col-sm" id="movieSeating">
+      <div class="col-xs-2" id="selectMovies"></div>
+
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-sm" id="movieListing"></div>
+          <div class="col-sm" id="movieDetail"></div>
+          <div class="col-sm" id="movieSeating">
             <div class="seat" data-row="1" data-col="1"></div>
             <div class="seat" data-row="1" data-col="2"></div>
             <div class="seat" data-row="1" data-col="3"></div>
             <div class="seat" data-row="1" data-col="4"></div>
             <div class="seat" data-row="1" data-col="5"></div>
 
-            <div class="seat  clear" data-row="2" data-col="1"></div>
+            <div class="seat  clear" data-row="2" data-col="1">aa</div>
             <div class="seat" data-row="2" data-col="2"></div>
             <div class="seat" data-row="2" data-col="3"></div>
             <div class="seat" data-row="2" data-col="4"></div>
@@ -51,19 +65,20 @@
             <div class="seat"></div>
             <div class="seat"></div>
             <div class="seat"></div>
-
+          </div>
         </div>
-    
+      </div>
     </div>
+  </div>
 
 
 
-</div>
+  </div>
 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="js/site.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="js/site.js"></script>
 </body>
 
 </html>

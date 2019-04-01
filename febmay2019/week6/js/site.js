@@ -1,4 +1,4 @@
-var globalMovieData = 'shit';
+var globalMovieData;
 var selectedGenres = [];
 $(function () {
 
@@ -12,7 +12,7 @@ function loadGenresCheckbox() {
     var uniqueGenres = []
     var templateData = []
     //push all genres into an array
-      $.each(globalMovieData, function (index, value, ) {
+    $.each(globalMovieData, function (index, value, ) {
         genres = genres.concat(value.genre.split(', '))
 
     })
@@ -29,7 +29,7 @@ function loadGenresCheckbox() {
                 <input class="form-check-input" type="checkbox" name="exampleRadios" id="${element}" value="option${index}" >
                 <label class="form-check-label" for="${element}"> ${element} </label>
             </div>`
-            )
+        )
     })
 
     $('#selectMovies').append(templateData.join(" "));
@@ -40,8 +40,8 @@ function loadGenresCheckbox() {
 
 function startUp() {
 
-//genre checkbox event 
-    $('.container').on('change', '.form-check-input', function (event) {        
+    //genre checkbox event 
+    $('.container').on('change', '.form-check-input', function (event) {
         var selected = event.target.attributes.id.nodeValue
         if (event.target.checked) {
             selectedGenres.push(selected)
@@ -59,12 +59,30 @@ function startUp() {
         }
         $('#movieListing').empty().append(templateData.join(" "));
     })
-
-   
-// View Movie button
+ 
+    // View Movie button
     $(".container").on('click', ".viewMovie", function () {
         var movieId = $(this).data("id");
         bookMovie(movieId)
+        
+        // ticket plus and minus buttons have a math class
+        $('.math').on('click', function (event) {
+            
+            
+            if(event.currentTarget.id=="plus"){
+                var num = parseInt($('#tickets').text()) + 1
+                
+                $('#tickets').text(num)
+            }
+            else if(event.currentTarget.id=="minus"){
+                var num = parseInt($('#tickets').text()) - 1
+                num >= 0? $('#tickets').text(num): $('#tickets').text(0)
+                
+            }
+            $('.math').blur()
+
+            console.log(event.currentTarget.id)
+        })
 
     })
 
@@ -110,12 +128,10 @@ function startUp() {
     })
 
 
-
-
 }
 
 function loadMovies() {
-    console.log('---------------loadmovies loads globalmoviedata---------------')
+
 
     var url = 'http://college-movies.herokuapp.com/';
 
@@ -168,45 +184,95 @@ function getMovieTemplate(id, movieItem) {
 function getMovieBookingTemplate(id, movieItem) {
 
     return `<div class="card" style="width: 18rem;">
-               
+
     <div class="card-body">
-      <h5 class="card-title">${movieItem.title}</h5>
-      <p class="card-text"></p>
+        <h5 class="card-title">${movieItem.title}</h5>
+        <p class="card-text"></p>
         <div class="row">
-                <div class="col-md-6">Mon</div>
-                <div class="col-md-6">${getMovieTemplateTimes(movieItem.runningTimes.mon)}</div>
+            <div class="col-md-6">Mon</div>
+            <div class="col-md-6">${getMovieTemplateTimes(movieItem.runningTimes.mon)}</div>
         </div>
         <div class="row">
-        <div class="col-md-6">Tue</div>
-        <div class="col-md-6">${getMovieTemplateTimes(movieItem.runningTimes.tue)}</div>
-</div>
-<div class="row">
-<div class="col-md-6">Wed</div>
-<div class="col-md-6">${getMovieTemplateTimes(movieItem.runningTimes.wed)}</div>
-</div>
+            <div class="col-md-6">Tue</div>
+            <div class="col-md-6">${getMovieTemplateTimes(movieItem.runningTimes.tue)}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">Wed</div>
+            <div class="col-md-6">${getMovieTemplateTimes(movieItem.runningTimes.wed)}</div>
+        </div>
 
 
-<div class="row">
-<div class="col-md-6">
-<select id="chooseDay" data-movieId="${id}">
-<option value="">Select A Day</option>
-<option value="mon">Monday</option>
-<option value="tue">Tuesday</option>
-<option value="wed">Wednesday</option>
-<option value="thu">Thursday</option>
-<option value="fri">Friday</option>
-<option value="sat">Saturday</option>
-<option value="sun">Sunday</option>
-</select>
-</div>
-<div class="col-md-6"><select id="chooseTime" disabled><option>Choose Day</option></select></div>
+        <div class="row">
+            <div class="col-md-6">
+                <select id="chooseDay" data-movieId="${id}">
+                    <option value="">Select A Day</option>
+                    <option value="mon">Monday</option>
+                    <option value="tue">Tuesday</option>
+                    <option value="wed">Wednesday</option>
+                    <option value="thu">Thursday</option>
+                    <option value="fri">Friday</option>
+                    <option value="sat">Saturday</option>
+                    <option value="sun">Sunday</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button id="minus" type="button" class="btn btn-primary btn-sm math"><i
+                            class="fas fa-minus"></i></button>
+                    <h1><span id="tickets" class="badge badge-light">1</span></h1>
+                    <button id="plus" type="button" class="btn btn-primary btn-sm math"><span><i
+                                class="fas fa-plus"></span></i></button>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <span> pick a number of tickets </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                <select id= "chooseticket" data-movieId="${id}">
+                    <option value="">Select a ticket type</option>
+                    <option value="Basic">Basic</option>
+                    <option value="Premium">Premium</option>
+                    <option value="VIP">VIP</option>
+
+                </select>
+
+            </div>
+            
+            <div class="col-md">
+                <p  > Price: </p>
+                <div id = "totalPrice" style = " border-style:solid; border-color: green"> 9.99 € </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Name </span>
+        </div>
+        <input type="text" class="form-control" placeholder="John Doe" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">email</span>
+  </div>
+  <input type="text" class="form-control" placeholder="guy@email.com" aria-label="Username" aria-describedby="basic-addon1">
 </div>
 
+        <div class="col-md-6"><select id="chooseTime" disabled>
+                <option>Choose Day</option>
+            </select></div>
 
-      <button class="btn btn-primary bookMovie" data-id="${id}">Book Movie</button> 
-    
+
+
+        <button class="btn btn-primary bookMovie" data-id="${id}">Book Movie</button>
+
     </div>
-  </div>`;
+</div>`;
 
 }
 
