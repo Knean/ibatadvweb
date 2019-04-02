@@ -1,11 +1,51 @@
 var globalMovieData;
 var selectedGenres = [];
+var selectedSeats = 0;
+var numberOfTickets = 1;
+var chosenSeats = {}
 $(function () {
 
     startUp();
     loadMovies();
 
 })
+
+
+function movieDetailBindings() {
+    $('.math').on('click', function (event) {
+        var num = parseInt($('#tickets').data('total'))
+
+        if (event.currentTarget.id == "plus") {
+            num++
+        }
+        else if (event.currentTarget.id == "minus") {
+
+            num - 1 >= 0 ? num-- : num = 0
+
+        }
+        $('.math').blur()
+
+        $('#tickets').text(num)
+        $('#tickets').data('total', num)
+        updatePrice()
+    })
+
+    $('#chooseticket').on('change', function (event) {
+
+        $('#chooseticket').data('ticket', $(this).context.value)
+        updatePrice()
+
+    })
+}
+function updatePrice() {
+    console.log($('#chooseticket').data())
+    var movieId = $('#chooseticket').data("movieid")
+    var ticket = $('#chooseticket').data("ticket")
+    numberOfTickets = $("#tickets").data('total')
+    var price = globalMovieData[movieId].tickets[ticket]
+
+    $('#totalPrice').text(price * numberOfTickets + ".00€")
+}
 
 function loadGenresCheckbox() {
     var genres = [];
@@ -35,15 +75,7 @@ function loadGenresCheckbox() {
     $('#selectMovies').append(templateData.join(" "));
 }
 
-function updatePrice() {
-    console.log($('#chooseticket').data())
-    var movieId = $('#chooseticket').data("movieid")
-    var ticket = $('#chooseticket').data("ticket")
-    var numberOfTickets = $("#tickets").data('total')
-    var price = globalMovieData[movieId].tickets[ticket]
 
-    $('#totalPrice').text(price * numberOfTickets + ".00€")
-}
 
 
 function startUp() {
@@ -71,44 +103,32 @@ function startUp() {
     // View Movie button
     $(".container").on('click', ".viewMovie", function () {
         var movieId = $(this).data("id");
+        
+        drawCinema(globalMovieData[movieId].cinema)
         bookMovie(movieId)
+        
 
         // ticket plus and minus buttons have a math class
-        $('.math').on('click', function (event) {
-            var num = parseInt($('#tickets').data('total'))
-
-            if (event.currentTarget.id == "plus") {
-                num++
-            }
-            else if (event.currentTarget.id == "minus") {
-
-                num - 1 >= 0 ? num-- : num = 0
-
-            }
-            $('.math').blur()
-
-            $('#tickets').text(num)
-            $('#tickets').data('total', num)
-            updatePrice()
-        })
-
-        $('#chooseticket').on('change', function (event) {
-
-            $('#chooseticket').data('ticket', $(this).context.value)
-            updatePrice()
-
-        })
-
 
     })
+    function drawCinema(cinema) {
+        var html = []
 
+        cinema.forEach(function (value, index, array) {
+            html.push(`<div class="seat clear " data-row="${index}" data-col=${0}></div>`)
+            for (i = 1; i < value; ++i) {
+                html.push(`<div class="seat " data-row="${index}" data-col=${i}></div>`)
+            }
+            
+        })
+        $('#movieSeating').empty().append(html.join(' '))
+}
     $(".container").on('change', "#chooseDay", function () {
 
         var id = $(this).data("movieid");
         var day = $(this).val();
 
-        console.log(`You chose day ${day} for movie id ${id}`);
-        console.log(globalMovieData[id].runningTimes);
+
 
         switch (day) {
             case "mon": times = globalMovieData[id].runningTimes.mon; break;
@@ -142,16 +162,31 @@ function startUp() {
 
 
     })
+    // cinema clicking
 
-
+    $(".container").on('click', '#movieSeating>.seat', function () {
+        if ($(this).hasClass("selected")) {
+            $(this).removeClass("selected")
+            selectedSeats--
+        }
+        else {
+            if (selectedSeats < numberOfTickets) {
+                selectedSeats++
+                $(this).addClass("selected")
+            }
+         }
+         console.log($(this).data())
+    })
 }
 function createCinema() {
     var cinema = []
     //index is row, value is number of seats
-    for (i = 0; i < parseInt(5 + 5 * Math.random()); ++i) {
-        cinema.push(parseInt(4 + 4 * Math.random()))
+    for (i = 0; i < parseInt(4 + 8 * Math.random()); ++i) {
+        cinema.push(parseInt(4 + 10 * Math.random()))
     }
+  
     return cinema
+    
 }
 
 function ticketPrices() {
@@ -173,8 +208,6 @@ function loadMovies() {
             value["cinema"] = createCinema()
             value["tickets"] = ticketPrices()
         })
-        console.log(globalMovieData, 'edited json')
-        console.log(globalMovieData, 'jsonobject')
         var templateData = []
         loadGenresCheckbox()
 
@@ -342,6 +375,8 @@ function bookMovie(id) {
     console.log(globalMovieData[id]);
 
     $('#movieDetail').html(getMovieBookingTemplate(id, globalMovieData[id]));
+
+    movieDetailBindings()
 
 }
 
