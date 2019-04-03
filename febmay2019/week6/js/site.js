@@ -2,7 +2,8 @@ var globalMovieData;
 var selectedGenres = [];
 var selectedSeats = 0;
 var numberOfTickets = 1;
-var chosenSeats = {}
+var chosenSeats = []
+var movieId;
 $(function () {
 
     startUp();
@@ -102,7 +103,7 @@ function startUp() {
 
     // View Movie button
     $(".container").on('click', ".viewMovie", function () {
-        var movieId = $(this).data("id");
+        movieId = $(this).data("id");
         
         drawCinema(globalMovieData[movieId].cinema)
         bookMovie(movieId)
@@ -177,6 +178,7 @@ function startUp() {
          }
          console.log($(this).data())
     })
+
 }
 function createCinema() {
     var cinema = []
@@ -324,7 +326,7 @@ function getMovieBookingTemplate(id, movieItem) {
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">Name </span>
         </div>
-        <input type="text" class="form-control" placeholder="John Doe" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" id= "name" class="form-control" placeholder="John Doe" aria-label="Username" aria-describedby="basic-addon1">
       </div>
       <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -377,7 +379,31 @@ function bookMovie(id) {
     $('#movieDetail').html(getMovieBookingTemplate(id, globalMovieData[id]));
 
     movieDetailBindings()
+    // save selected seats
+    $(".bookMovie").on('click',function(){
+        
+        var booking = {seats:[], person:"", ticket:"",cinema:""}
+        $('#movieSeating').children().each(function(value){
+            if($(this).hasClass("selected")){
+                               
+                booking.seats.push( {
+                    row: $(this).data("row"), 
+                    col: $(this).data("col"),
 
+                })
+           
+                
+            }
+        })
+        booking.cinema = $("#movieSeating").html()
+        //globalMovieData[movieId].cinema
+        booking.person = $("#name").val()
+        chosenSeats.push(booking)
+        console.log(chosenSeats)
+        localStorage.setItem('booking', JSON.stringify(booking));
+        $(".container").load("nextsite.html")
+        
+    })
 }
 
 
